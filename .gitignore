@@ -2,4 +2,5 @@
 *.a.h
 *.gch
 *.[oa]
+/iwaz
 /build/*/iwaz
