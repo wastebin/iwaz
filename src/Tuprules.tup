@@ -9,7 +9,7 @@ CFLAGS = $(CFLAGS)
 
 CFLAGS += -Wall -Wfatal-errors
 
-CPPFLAGS += -std=c++17
+LDFLAGS += -ledit
 
 CFLAGS += -m64
 LDFLAGS += -m64
