@@ -4,7 +4,7 @@
 #include <editline/readline.h>
 #include <histedit.h>
 
-#include "mpc.h"
+#include "mpc/mpc.h"
 
 int main(int argc, char **argv) {
 	mpc_parser_t *Num = mpc_new("num");

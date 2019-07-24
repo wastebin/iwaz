@@ -17,5 +17,6 @@ LDFLAGS += -m64
 !hc = |> ^ HC %f^ $(CC) $(PPFLAGS) -x c-header -c %f |> %f.gch
 !cc = |> ^ CC %f^ $(CC) $(PPFLAGS) $(CFLAGS) -c -o %o %f |> %B.o
 !ld = |> ^ LD %o^ $(CC) $(LDFLAGS) %f -o %o |>
+!ar = |> ^ AR %o^ $(AR) crs %o %f |>
 
 !cp = |> ^ CP %o^ cp %f %o |>

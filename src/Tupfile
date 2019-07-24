@@ -1,5 +1,5 @@
 include_rules
 
 : foreach *.h |> !hc |> {chds}
-: foreach *.c | {chds} |> !cc |> {objs}
-: {objs} |> !ld |> ../iwaz
+: foreach *.c | {chds} mpc/*.gch |> !cc |> {objs}
+: {objs} mpc/libmpc.a |> !ld |> ../iwaz
