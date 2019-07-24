@@ -1,0 +1,21 @@
+ifdef PROJ_ARCH
+include @(PROJ_ARCH).tup
+else
+include @(TUP_PLATFORM).tup
+endif
+
+CPPFLAGS = $(CPPFLAGS)
+CFLAGS = $(CFLAGS)
+
+CFLAGS += -Wall -Wfatal-errors
+
+CPPFLAGS += -std=c++17
+
+CFLAGS += -m64
+LDFLAGS += -m64
+
+!hc = |> ^ HC %f^ $(CC) $(PPFLAGS) -x c-header -c %f |> %f.gch
+!cc = |> ^ CC %f^ $(CC) $(PPFLAGS) $(CFLAGS) -c -o %o %f |> %B.o
+!ld = |> ^ LD %o^ $(CC) $(LDFLAGS) %f -o %o |>
+
+!cp = |> ^ CP %o^ cp %f %o |>
