@@ -7,7 +7,7 @@
 #include "mpc/mpc.h"
 #include "mystr.h"
 
-#include "defs.h"
+#include "defs.a.h"
 
 #include "eval.h"
 

@@ -1,0 +1,8 @@
+#pragma once
+
+#ifndef _DEFS_ATH
+#define _DEFS_ATH
+
+#define VERSION "@VER@@SUFFIX@"
+
+#endif

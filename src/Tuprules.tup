@@ -1,21 +1,26 @@
-ifdef PROJ_ARCH
-include @(PROJ_ARCH).tup
+ifdef @(PLAT)
+PLAT = @(PLAT)
 else
-include @(TUP_PLATFORM).tup
+PLAT = @(TUP_PLATFORM)
 endif
+
+ifdef @(ARCH)
+ARCH = @(ARCH)
+else
+ARCH = @(TUP_ARCH)
+endif
+
+include $(PLAT).tup
+include $(PLAT)-$(ARCH).tup
 
 CPPFLAGS = $(CPPFLAGS)
 CFLAGS = $(CFLAGS)
 
-CFLAGS += -Wall -ggdb -Wfatal-errors
+CFLAGS += -Wall -Wfatal-errors
 
-LDFLAGS += -ledit
-
-CFLAGS += -m64
-LDFLAGS += -m64
-
-!hc = |> ^ HC %f^ $(CC) $(PPFLAGS) -x c-header -c %f |> %f.gch
-!cc = |> ^ CC %f^ $(CC) $(PPFLAGS) $(CFLAGS) -c -o %o %f |> %B.o
+!vs = |> ^ VS %f^ tup varsed %f %o |>
+!hc = |> ^ HC %f^ $(CC) $(CPPFLAGS) -x c-header -c %f |> %f.gch
+!cc = |> ^ CC %f^ $(CC) $(CPPFLAGS) $(CFLAGS) -c -o %o %f |> %B.o
 !ld = |> ^ LD %o^ $(CC) $(LDFLAGS) %f -o %o |>
 !ar = |> ^ AR %o^ $(AR) crs %o %f |>
 
