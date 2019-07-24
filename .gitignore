@@ -1,4 +1,4 @@
 .tup
-.gch
-.[oa]
+*.gch
+*.[oa]
 /iwaz
