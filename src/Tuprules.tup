@@ -7,7 +7,7 @@ endif
 CPPFLAGS = $(CPPFLAGS)
 CFLAGS = $(CFLAGS)
 
-CFLAGS += -Wall -Wfatal-errors
+CFLAGS += -Wall -ggdb -Wfatal-errors
 
 LDFLAGS += -ledit
 

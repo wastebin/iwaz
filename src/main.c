@@ -5,6 +5,11 @@
 #include <histedit.h>
 
 #include "mpc/mpc.h"
+#include "mystr.h"
+
+#include "defs.h"
+
+#include "eval.h"
 
 int main(int argc, char **argv) {
 	mpc_parser_t *Num = mpc_new("num");
@@ -20,7 +25,7 @@ int main(int argc, char **argv) {
 		Num, Op, Exp, Top
 	);
 
-	puts("Īwaz v0.1.0");
+	puts("Īwaz " VERSION);
 	puts("Press ^C to exit. Please don’t press ^D. It makes editline segfault.");
 
 	while (1) {
@@ -30,7 +35,9 @@ int main(int argc, char **argv) {
 
 		mpc_result_t r;
 		if (mpc_parse("<stdin>", inp, Top, &r)) {
-			mpc_ast_print(r.output);
+			long res = eval(r.output);
+			printf("%li\n", res);
+
 			mpc_ast_delete(r.output);
 		} else {
 			mpc_err_print(r.error);
