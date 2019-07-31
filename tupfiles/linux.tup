@@ -1,7 +1,9 @@
 CC = gcc
+CX = g++
 AR = ar
 
-LDFLAGS += -ledit
+CFLAGS += -Wall -Wextra -pedantic
+CXXFLAGS += -Wall -Wextra -pedantic
 
 ifeq (@(BUILD),debug)
 	CFLAGS += -ggdb
