@@ -1,0 +1,16 @@
+CC = gcc
+AR = ar
+
+LDFLAGS += -ledit
+
+ifeq (@(BUILD),debug)
+	CFLAGS += -ggdb
+	else
+	ifeq (@(BUILD),plain)
+		# do nothing
+		else
+		ifeq (@(BUILD),optim)
+			CFLAGS += -O3
+		endif
+	endif
+endif

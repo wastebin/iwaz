@@ -1,0 +1,6 @@
+include_rules
+
+: foreach src/* |> !vs |> build/%b
+: foreach build/*.hh | build/mpc/*.gch |> !hc -Lbuild |> {gchs}
+: foreach build/*.cc | build/mpc/*.gch {gchs} |> !cc -Lbuild |> build/%B.o
+: build/*.o build/mpc/libmpc.a |> !ld |> dist/iwaz
