@@ -1,8 +1,8 @@
 .tup
 
-/build/
-!/build/mpc/
-/dist/
+/build/*
+
+/dist/**
 
 *.gch
 *.[oa]
